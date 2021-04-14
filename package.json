@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/dmitrybalduev/readme-generator/issues"
   },
-  "homepage": "https://github.com/dmitrybalduev/readme-generator#readme"
+  "homepage": "https://github.com/dmitrybalduev/readme-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  }
 }
