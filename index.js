@@ -1,8 +1,11 @@
 // TODO: Include packages needed for this application
 const inq = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown");
+
 const { repeat } = require("lodash");
 let text = "";
+const arrayLicense = ["Apache 2.0 License", "Boost", "BSD"];
 
 // TODO: Create an array of questions for user input
 const questions = ["Please enter title",
@@ -50,27 +53,30 @@ function init() {
                 type: 'input',
                 message: questions[4],
                 name: 'usage',
+            },
+            {
+                type: 'list',
+                message: questions[5],
+                choices: arrayLicense,
+                name: "license"
             }
         ])
         .then((response) => {
-            console.log(response);
-            text = "# " +response.title +
-                    "\n\n## Description\n" + response.description + 
-                    "\n\n## Table of Content\n" + divideNextLine(response.content) +
-                    "\n\n## Installation Instructions\n" + divideNextLine(response.install) +
-                    "\n\n## Usage\n" + divideNextLine(response.usage);
+            console.log((response));
+            let arr = [response.title, response.description, response.content, response.install, response.usage, response.license];
+            const lic = new generateMarkdown(arr);
+            // text = "# " +response.title +:
+            //         "\n\n## Description\n" + response.description + 
+            //         "\n\n## Table of Content\n" + divideNextLine(response.content) +
+            //         "\n\n## Installation Instructions\n" + divideNextLine(response.install) +
+            //         "\n\n## Usage\n" + divideNextLine(response.usage) + 
+            //         "\n\n## License\n" + lic.renderLicenseBadge(response.license);
  
-            writeToFile("README.md", text);
+            writeToFile("README.md", lic.output);
         });
+    // console.log(lic.a);
 }
 
 // Function call to initialize app
 init();
 
-let divideNextLine = (data) =>{
-   let result = "";
-   data.split("\n").forEach(element => {
-        result = result + element + "<br/>";
-    });
-    return result;
-}
