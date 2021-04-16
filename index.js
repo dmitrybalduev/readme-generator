@@ -65,16 +65,9 @@ function init() {
             console.log((response));
             let arr = [response.title, response.description, response.content, response.install, response.usage, response.license];
             const lic = new generateMarkdown(arr);
-            // text = "# " +response.title +:
-            //         "\n\n## Description\n" + response.description + 
-            //         "\n\n## Table of Content\n" + divideNextLine(response.content) +
-            //         "\n\n## Installation Instructions\n" + divideNextLine(response.install) +
-            //         "\n\n## Usage\n" + divideNextLine(response.usage) + 
-            //         "\n\n## License\n" + lic.renderLicenseBadge(response.license);
  
             writeToFile("README.md", lic.output);
         });
-    // console.log(lic.a);
 }
 
 // Function call to initialize app
