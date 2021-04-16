@@ -25,6 +25,8 @@ MacOS users:
 2. Answer all questions from terminal. Some questions will be opened in editor mode, (for Mac users it will be vim) in order to start typing press key "i". Upon completion press "ESC" key and ":x!" to exit 
 3. When done, markdown file will be generated
 
+Here is short walkthrough video [click here](https://drive.google.com/file/d/1zFuqHi1jakk9LDihK1N3WMOfXYIwyuSL/view)
+
 Here are samples of how command line looks like and sample README file:
 ![Command Line questions](./utils/command-line.png)
 ![Sample README](./utils/sample-readme.png)
