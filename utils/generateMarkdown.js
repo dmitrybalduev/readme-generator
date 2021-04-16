@@ -22,10 +22,15 @@ function generateMarkdown(data) {
     console.log(data);
     this.output =  "# " +data[0] +
     "\n\n## Description\n" + data[1] + 
-    "\n\n## Table of Content\n" + divideNextLine(data[2]) +
+    "\n\n## Table of Content\n" + (data[2]) +
     "\n\n## Installation Instructions\n" + divideNextLine(data[3]) +
     "\n\n## Usage\n" + divideNextLine(data[4]) + 
-    "\n\n## License\n" + "\n" + data[5] + "\n\n" + renderLicenseBadge(data[5]); 
+    "\n\n## Contribution\n" + data[5] +
+    "\n\n## Test\n" + data[6] +
+    "\n\n## License\n" + "\n" + data[7] + "\n\n" + renderLicenseBadge(data[7]) +
+    "\n\n## Questions" +
+    "\nIf you have additional questions you can reach me on Github: [" + data[8] +"](https://github.com/"+data[8] +")"  + 
+    "\n\nAdditionally you contact me directly at " + data[9]; 
 
 }
 
