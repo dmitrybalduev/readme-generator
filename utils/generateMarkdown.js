@@ -3,11 +3,11 @@
 function renderLicenseBadge(license) {
     switch(license){
         case "Apache 2.0 License":
-            return "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]";
+            return "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
         case "Boost":
-            return "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)]";
+            return "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)";
         case "BSD":
-            return "![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)";
+            return "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)";
         default:
             return "";
     }
@@ -15,7 +15,18 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+    switch(license){
+        case "Apache 2.0 License":
+            return "(https://opensource.org/licenses/Apache-2.0)";
+        case "Boost":
+            return "(https://www.boost.org/LICENSE_1_0.txt)";
+        case "BSD":
+            return "(https://opensource.org/licenses/BSD-3-Clause)";
+        default:
+            return "";
+    }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -35,7 +46,8 @@ function generateMarkdown(data) {
     "\n\n## Table of Content\n" + divideNextLine(data[2]) +
     "\n\n## Installation Instructions\n" + divideNextLine(data[3]) +
     "\n\n## Usage\n" + divideNextLine(data[4]) + 
-    "\n\n## License\n" + renderLicenseBadge(data[5]);
+    "\n\n## License\n" + "\n" + data[5] + "\n\n" + renderLicenseBadge(data[5]); 
+    // + "\n[Click here to view License]" + renderLicenseLink(data[5]);
 
 }
 
